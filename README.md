@@ -15,7 +15,7 @@ The first build will take quite some time.
 
 By default, a kernel, ramdisk, and ext2 volume will be built into the `images` directory.
 
-The images are configured to DHCP using onboard ethernet and start an SSH server. Additional packages can be installed by configuring Buildroot.
+The images are configured to DHCP using onboard ethernet and start an SSH server. There is only a `root` user with no password. Additional packages can be installed by configuring Buildroot.
 
 To boot these in Qemu, run:
 
