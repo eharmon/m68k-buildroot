@@ -17,6 +17,8 @@ By default, a kernel, ramdisk, and ext2 volume will be built into the `images` d
 
 The images are configured to DHCP using onboard ethernet and start an SSH server. There is only a `root` user with no password. Additional packages can be installed by configuring Buildroot.
 
+First boot will be very, very slow as the SSH host keys will be generated. Let it sit, it is not frozen.
+
 To boot these in Qemu, run:
 
 	$ qemu-system-m68k -boot d \
