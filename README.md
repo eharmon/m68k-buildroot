@@ -22,9 +22,9 @@ First boot will be very, very slow as the SSH host keys will be generated. Let i
 To boot these in Qemu, run:
 
 	$ qemu-system-m68k -boot d \
-	    -M q800 -serial none -serial mon:stdio -m 256M -rtc base=localtime \
+	    -M q800 -m 256M -rtc base=localtime \
 	    -net nic,model=dp83932 -net user \
-	    -append "root=/dev/sda rw console=ttyS0 vga=off" \
+	    -append "root=/dev/sda rw console=ttyS0" \
 	    -kernel images/vmlinux \
 	    -drive file=images/rootfs.ext2,format=raw \
 	    -nographic
