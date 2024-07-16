@@ -1,0 +1,14 @@
+#!/bin/sh
+
+losetup -o 32768 -f $1
+mkdir -p /mnt/pivot_root
+mount /dev/loop0 /mnt/pivot_root
+mount --rbind /dev /mnt/pivot_root/dev
+mount --make-rslave /mnt/pivot_root/dev
+mount -t proc /proc /mnt/pivot_root/proc
+mount --rbind /sys /mnt/pivot_root/sys
+mount --make-rslave /mnt/pivot_root/sys
+mount --rbind /tmp /mnt/pivot_root/tmp
+mount --bind /run /mnt/pivot_root/run
+
+echo "Run 'chroot /mnt/pivot_root' to pivot"
