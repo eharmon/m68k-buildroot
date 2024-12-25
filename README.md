@@ -1,13 +1,15 @@
 Buildroot Linux for 68k Macs
 ============================
 
-Pre-configured Buildroot Linux for 68040 Macintosh.
+Pre-configured [Buildroot Linux](https://buildroot.org) for 68040-based Macintosh.
 
 To setup the Buildroot environment, run:
 
 	./setup.sh
 
-Now you can configure further using the standard Buildroot methods. For instance, to build images:
+Now you can configure further using the standard Buildroot methods, please see the Buildroot documentation.
+
+As an example, to build images simply run make:
 
 	make
 
@@ -28,3 +30,5 @@ To boot these in Qemu, run:
 	    -kernel images/vmlinux \
 	    -drive file=images/rootfs.ext2,format=raw \
 	    -nographic
+
+To boot on a real computer, use [Penguin](https://sourceforge.net/projects/linux-mac68k/files/Penguin%20Booter/Penguin-19/). The Linux/mac68k Project has a [useful FAQ](http://www.mac.linux-m68k.org/docs/penguin.php).
