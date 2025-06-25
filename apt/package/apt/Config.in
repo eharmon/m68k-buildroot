@@ -1,0 +1,19 @@
+config BR2_PACKAGE_APT
+	bool "apt"
+
+	depends on BR2_INSTALL_LIBSTDCPP
+	select BR2_PACKAGE_BERKELEYDB
+	select BR2_PACKAGE_BZIP2
+	select BR2_PACKAGE_DPKG
+	select BR2_PACKAGE_GNUPG
+	select BR2_PACKAGE_GNUPG_GPGV
+	select BR2_PACKAGE_GNUPG_RSA
+	select BR2_PACKAGE_GNUTLS
+	select BR2_PACKAGE_LIBGCRYPT
+	select BR2_PACKAGE_TAR
+	select BR2_PACKAGE_ZLIB
+	select BR2_PACKAGE_XZ
+	select BR2_PACKAGE_LZ4
+	select BR2_PACKAGE_XXHASH
+	help
+		Manage packages with the Advanced Package Tool.

@@ -1,0 +1,3 @@
+source "$BR2_EXTERNAL_APT_PATH/package/apt/Config.in"
+source "$BR2_EXTERNAL_APT_PATH/package/dpkg/Config.in"
+source "$BR2_EXTERNAL_APT_PATH/package/triehash/Config.in"

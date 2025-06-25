@@ -1,0 +1,13 @@
+config BR2_PACKAGE_DPKG
+	bool "dpkg"
+
+	depends on BR2_PACKAGE_GLIBC
+	depends on BR2_PACKAGE_GLIBC_UTILS
+
+	select BR2_PACKAGE_COREUTILS
+	select BR2_PACKAGE_LIBMD
+	select BR2_PACKAGE_NCURSES
+	select BR2_PACKAGE_TAR
+
+	help
+		Low-level package management for the Advanced Package Tool.

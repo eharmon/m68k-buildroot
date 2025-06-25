@@ -16,7 +16,8 @@ endif
 lastword = $(word $(words $(1)),$(1))
 makedir := $(dir $(call lastword,$(MAKEFILE_LIST)))
 
-MAKEARGS := -C buildroot
+# Here we forcefully enable the external apt repo
+MAKEARGS := -C buildroot BR2_EXTERNAL=../apt
 MAKEARGS += O=$(if $(patsubst /%,,$(makedir)),$(CURDIR)/)$(patsubst %/,%,$(makedir))
 
 MAKEFLAGS += --no-print-directory

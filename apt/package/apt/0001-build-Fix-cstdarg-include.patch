@@ -1,0 +1,10 @@
+--- a/apt-pkg/contrib/strutl.h	2024-07-09 22:52:32.154167779 -0700
++++ b/apt-pkg/contrib/strutl.h	2024-07-09 22:53:11.491287674 -0700
+@@ -20,6 +20,7 @@
+ #define STRUTL_H
+ 
+ #include <apt-pkg/string_view.h>
++#include <cstdarg>
+ #include <cstddef>
+ #include <cstring>
+ #include <ctime>
