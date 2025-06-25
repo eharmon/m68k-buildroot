@@ -1,4 +1,4 @@
-APT_VERSION = 2.7.14
+APT_VERSION = 3.1.3
 APT_SOURCE = apt-$(APT_VERSION).tar.gz
 APT_SITE = https://salsa.debian.org/apt-team/apt/-/archive/$(APT_VERSION)
 APT_INSTALL_STAGING = YES
