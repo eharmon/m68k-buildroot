@@ -1,7 +1,10 @@
-Buildroot Linux for 68k Macs
-============================
+Buildroot Linux for 68k Macs [Debian packaging branch]
+======================================================
 
 Pre-configured [Buildroot Linux](https://buildroot.org) for 68040-based Macintosh.
+
+*This branch enables installing packages directly from the m68k Debian port: https://www.debian.org/ports/m68k/*
+*See below for more details*
 
 To setup the Buildroot environment, run:
 
@@ -22,6 +25,23 @@ The images are configured to DHCP using onboard ethernet and start an SSH server
 For machines with smaller memory configurations, you can switch the kernel to build for size (-Os), disable kernel features (additional filesystems, IPv6, etc), and disable software packages. The default configuration will run well on systems with 64MiB, but may work on smaller systems.
 
 First boot will be very, very slow as the SSH host keys will be generated. Let it sit, it is not frozen.
+
+Debian
+------
+
+This branch enables direct installation of Debian packages from the Debian m68k port. This is a dirty hack. You should never trust an old system like this to do anything important (even with a modern kernel), and this further reduces security and increases instability. While these mix-and-match configurations are possible, they're not designed to work and can break at any time. I tried this only because it was there, though it is handy to have a large corpus of binary packages to work with.
+
+This is accomplished with a few tricks:
+- apt and dpkg are provided as external Buildroot packages. On first `make` Buildroot will automatically be configured to find this external tree.
+- A root FS is included which installs the correct sources for Debian to find `sid`.
+- The root FS additionally contains manually unpacked keyring data to authenticate packages.
+- Unlike the main branch, this uses glibc instead of uclibc for compatibility.
+
+This is sufficient to convince apt to install packages, which works for simple things like command-line tools. It's unlikely to work with anything complex, like daemons, etc.
+
+To install packages, use `apt` normally. `apt update` must be run first to populate the package list. You can also use `dpkg` to manually install packages.
+
+The first package you install will cause apt to replace Buildroot's copy of glibc with Debian's libc6 package. This is a result of the dirty hacks above. While not strictly desirable, at the moment (June 2025), they are compatible "enough" and this works without problems.
 
 Usage
 -----
