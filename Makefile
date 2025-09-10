@@ -3,7 +3,8 @@
 #  - Overrides/workarounds will need to be re-applied.
 
 # 68040 m68k: Workaround SCSI crash when the kernel is built with -O2
-MAKEOVERRIDES := LINUX_CFLAGS="-freorder-blocks-algorithm=simple"
+# TODO: Crashing again as of Buildroot 2025.08, so kernel is building -Os
+#MAKEOVERRIDES := LINUX_CFLAGS="-freorder-blocks-algorithm=simple"
 
 # Original Makefile follows
 ifeq ("$(origin V)", "command line")
